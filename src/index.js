@@ -15,11 +15,11 @@ async function getScores() {
       method: "GET"
     });
     const data = await response.json();
-    scoreList.innerHTML = ""; // Clear previous scores
-    data.forEach(score => {
+    recentScoresList.innerHTML = ""; // Clear previous scores
+    data.result.forEach(score => {
       const listItem = document.createElement("li");
       recentScoresList.textContent = `${score.user}: ${score.score}`;
-      scoreList.appendChild(listItem);
+      recentScoresList.appendChild(listItem);
     });
   } catch (error) {
     console.error("Error fetching scores:", error);
